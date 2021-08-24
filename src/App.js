@@ -26,6 +26,14 @@ function App(props) {
     setTasks(updatedTasks);
   };
 
+  function deleteTask(id){
+    const updatedTasks = [];
+    for(let it=0;it<tasks.length;it++){
+      if(tasks[it].id!==id) updatedTasks.push(tasks[it]);
+    }
+    setTasks(updatedTasks);
+  };
+
   const taskList = tasks.map(
     task => (
     <Todo 
@@ -33,11 +41,12 @@ function App(props) {
     id={task.id} 
     completed={task.completed} 
     key={task.id} 
-    toggleTaskCompleted={toggleTaskCompleted}/> 
+    toggleTaskCompleted={toggleTaskCompleted}
+    deleteTask={deleteTask} /> 
     )
   );
 
-  const headingText = `${taskList.length} ${taskList.length !== 1 ? 'tasks' : 'task'} remaining`;
+  const headingText = `${taskList.length} ${taskList.length !== 0 ? 'tasks' : 'task'} remaining`;
 
   return (
     <div className="todoapp stack-large">
