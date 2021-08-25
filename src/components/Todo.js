@@ -8,7 +8,7 @@ export default function Todo(props){
       <div className="form-group">
         <label className="todo-label" htmlFor={props.id}>
           New name for {props.name}
-        </label>
+        </label> 
         <input id={props.id} className="todo-text" type="text" onChange={(e)=> {
           setNewName(e.target.value);
         }}/>
